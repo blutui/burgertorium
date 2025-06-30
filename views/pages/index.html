@@ -1,0 +1,69 @@
+{% extends 'templates/default' %} {% block body %} {% import
+'macro/burger-card.html' as burger %} {% set items = [ { image_url:
+'https://cdn.blutui.com/uploads/burgertorium/burger.png', heading: 'Delicious
+Burger', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+lacinia odio vitae vestibulum vestibulum.', button_url: '#' }, { image_url:
+'https://cdn.blutui.com/uploads/burgertorium/burger.png', heading: 'Delicious
+Burger', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+lacinia odio vitae vestibulum vestibulum.', button_url: '#' }, { image_url:
+'https://cdn.blutui.com/uploads/burgertorium/burger.png', heading: 'Delicious
+Burger', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+lacinia odio vitae vestibulum vestibulum.', button_url: '#' } ] %}
+
+<!-- Hero Section -->
+<div class="relative text-white z-10">
+  {{ cms_image('image-tag-10', { url:
+  'https://cdn.blutui.com/uploads/burgertorium/hero.png', alt_text: 'Hero
+  Image', class: 'w-full h-[40rem] object-cover' }) }}
+
+  <div
+    class="absolute inset-0 flex flex-col items-start justify-center pl-10 md:pl-20 2xl:pl-96"
+  >
+    {{ cms_text('heading-tag-10', { element: 'h1', value: 'It’s French for
+    delicious.', class: 'text-6xl font-bold mb-4' }) }}
+  </div>
+</div>
+
+<!-- Download Our App Section -->
+<div
+  class="bg-primary text-white h-[8rem] py-2 grid grid-cols-12 justify-center items-center relative px-48"
+>
+  <div class="col-span-5 justify-self-end">
+    {{ cms_text('text-tag-10', { value: 'Download our app', class: 'text-4xl
+    uppercase' }) }} {{ cms_text('text-tag-20', { value: 'To have access to our
+    exclusive deals', class: '' }) }}
+  </div>
+  <div class="bg-secondary h-[0.2rem] col-span-5"></div>
+  <div class="col-span-2 absolute bottom-0 right-1/7 z-20">
+    {{ cms_image('image-tag-20', { url:
+    'https://cdn.blutui.com/uploads/burgertorium/download-app-hand.png',
+    alt_text: 'Hand holding a phone', class: '' }) }}
+  </div>
+</div>
+
+<!-- Burger Deals Banner -->
+<div class="relative my-24 max-w-6xl mx-auto">
+  {{ cms_image('image-tag-30', { url:
+  'https://cdn.blutui.com/uploads/burgertorium/burger-deals.png', alt_text:
+  'Burger Deals', class: 'w-full h-full object-cover rounded-lg' }) }}
+
+  <div
+    class="absolute inset-0 flex flex-col items-start justify-center text-white pl-20"
+  >
+    {{ cms_text('heading-tag-30', { element: 'h2', value: 'Burger Deals', class:
+    'text-8xl font-bold mb-4' }) }}
+  </div>
+</div>
+
+<!-- Accordion Section -->
+
+{% include 'components/accordian' %}
+
+<!--Milkshake Banner -->
+{{ cms_image('image-tag-40', { url:
+'https://cdn.blutui.com/uploads/burgertorium/milkshake.png', alt_text:
+'Milkshake Banner', class: 'w-full object-cover h-[45rem] my-24' }) }}
+
+<!--Burger Card -->
+{% for item in items %} {{ burger.card(loop.index,item.image_url, item.heading,
+item.text, item.button_url) }} {% endfor %} {% endblock %}
