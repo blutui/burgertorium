@@ -35,15 +35,34 @@
 
     <!-- Right Column with Grid -->
     <div class="col-span-8 grid grid-cols-3 gap-4" id="grid-container">
-      {% for i in 1..9 %}
+      {% set food_items = [ { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Cheeseburger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Veggie Burger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Chicken Burger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Cheeseburger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Veggie Burger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Chicken Burger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Cheeseburger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Veggie Burger' }, { image:
+      'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png', text:
+      'H&F Chicken Burger' } ] %} {% for item in food_items %}
       <div
         class="text-center grid-item bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300"
       >
-        {{ cms_image('image-tag-' ~ i, { url:
-        'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
-        alt_text: 'H&F Cheeseburger', class: 'w-full h-auto' }) }} {{
-        cms_text('text-tag-right-' ~ i, { value: 'H&F Cheeseburger', class:
-        'text-md mt-2 text-black' }) }}
+        <img
+          src="{{ item.image }}"
+          alt="{{ item.text }}"
+          class="w-full h-auto"
+        />
+        <div class="text-md mt-2 text-black">{{ item.text }}</div>
       </div>
       {% endfor %}
     </div>
