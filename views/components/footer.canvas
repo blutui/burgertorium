@@ -1,0 +1,51 @@
+<div class="bg-background border-t-4 border-b-4 border-secondary py-8">
+  <div class="container max-w-7xl mx-auto grid grid-cols-12 gap-4 py-10">
+    <!-- Logo Section -->
+    <div class="col-span-6 flex items-center">
+      {{
+        cms_image(
+          'image-tag-100',
+          {
+            url: 'https://cdn.blutui.com/uploads/burgertorium/logo.png',
+            alt_text: 'Hugo &
+      Francs Burgertorium Logo',
+            class: 'w-32'
+          }
+        )
+      }}
+    </div>
+
+    <!-- Menu Section -->
+    <div class="col-span-2">
+      {{
+        cms_heading(
+          'heading-tag-100',
+          { element: 'h4', value: 'H&F Menu', class: 'text-md text-black mb-2 font-semibold' }
+        )
+      }}
+      {{ cms_list('list-tag-001', { ordered: false, items: ['Burgers', 'Fries', 'Drinks'], class: 'text-black' }) }}
+    </div>
+
+    <!-- About Us Section -->
+    <div class="col-span-2">
+      {{
+        cms_heading(
+          'heading-tag-200',
+          { element: 'h4', value: 'About Us', class: 'text-md text-black mb-2 font-semibold' }
+        )
+      }}
+      {{ cms_list('list-tag-200', { ordered: false, items: ['Our Story', 'Careers', 'Press'], class: 'text-black' }) }}
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="col-span-2">
+      {{
+        cms_heading(
+          'heading-tag-300',
+          { element: 'h4', value: 'Contact Us', class: 'text-md text-black mb-2 font-semibold' }
+        )
+      }}
+      {{ cms_list('list-tag-300', { ordered: false, items: ['Email', 'Phone', 'Locations'], class: 'text-black' }) }}
+    </div>
+  </div>
+</div>

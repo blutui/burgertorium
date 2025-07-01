@@ -1,0 +1,68 @@
+<div class="bg-white border-t-2 border-secondary h-[6rem]">
+  <div
+    class="flex items-center justify-between px-6 py-4 relative h-full z-20 max-w-7xl mx-auto"
+  >
+    <!-- Logo Section -->
+    <div class="absolute transform translate-y-1/4 bg-white rounded-full p-8">
+      <a href="/">
+        {{-
+          cms_image(
+            'image-tag-1',
+            {
+              url: 'https://cdn.blutui.com/uploads/burgertorium/logo.png',
+              alt_text: 'Hugo
+        & Francs Burgertorium Logo',
+              class: 'w-36 h-36'
+            }
+          )
+        -}}
+      </a>
+    </div>
+
+    <!-- Navigation Links with SVG Icons -->
+    <div class="ml-auto flex space-x-8">
+      <div class="hover:opacity-75">{% include 'components/icons/search' %}</div>
+
+      <div class="hover:opacity-75">
+        {% include 'components/icons/location' %}
+      </div>
+
+      <div class="hover:opacity-75">
+        <a href="/our-menu" onclick="openModal(event)">
+          {% include 'components/icons/burger' %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  id="fullPageModal"
+  class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden"
+>
+  <div class="bg-white w-full h-full p-10 overflow-auto relative">
+    <button
+      onclick="closeModal()"
+      class="absolute top-4 right-4 text-black text-xl font-bold cursor-pointer"
+    >
+      &times;
+    </button>
+    <div id="modalContent">
+      <!-- Content gets inserted here -->
+      <h1 class="text-4xl font-bold">Modal Title</h1>
+      <p class="mt-4 text-lg">This is a full-page modal example.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(event) {
+    event.preventDefault(); // prevent page navigation
+    const modal = document.getElementById("fullPageModal");
+    modal.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("fullPageModal");
+    modal.classList.add("hidden");
+  }
+</script>

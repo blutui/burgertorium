@@ -1,0 +1,89 @@
+{% extends 'templates/default' %}
+{% block body %}
+  <div class="container mx-auto p-6 max-w-7xl my-24">
+    <div class="bg-background flex flex-col items-center py-10">
+      <!-- Return to Full Menu Link -->
+      {{
+        cms_button(
+          'button-tag-product-001',
+          {
+            text: '← Return to full menu',
+            url: '/our-menu',
+            opens_new_tab: false,
+            class: 'text-black self-start
+    hover:text-secondary transition duration-300'
+          }
+        )
+      }}
+
+      <!-- Product Image -->
+      {{
+        cms_image(
+          'image-tag-product-001',
+          {
+            url: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
+            alt_text: 'H&F Cheeseburger',
+            class: 'w-1/4 mb-6'
+          }
+        )
+      }}
+
+      <!-- Product Name -->
+      {{
+        cms_text(
+          'heading-tag-product-001',
+          { element: 'h2', value: 'H&F Cheeseburger', class: 'text-3xl font-bold text-black mb-10 text-center' }
+        )
+      }}
+
+      <!-- Product Description -->
+      {{
+        cms_text(
+          'text-tag-product-002',
+          {
+            value: 'Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua.',
+            class: 'font-family-manrope text-lg text-black
+    text-center mb-24'
+          }
+        )
+      }}
+
+      <!-- You Might Also Like Section -->
+      <div class="w-full border-t-2 border-black py-24">
+        {{
+          cms_heading(
+            'heading-tag-product-002',
+            { element: 'h3', value: 'You
+      might also like', class: 'text-2xl text-black text-center mb-8' }
+          )
+        }}
+
+        <!-- Cards Section -->
+        <div class="flex justify-center space-x-4">
+          {% for i in 1..4 %}
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden w-1/4 p-2">
+              {{
+                cms_image(
+                  'image-tag-product-00' ~ i,
+                  {
+                    url: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
+                    alt_text: 'Burger Image',
+                    class: 'w-2/3 object-cover mx-auto'
+                  }
+                )
+              }}
+              {{
+                cms_text(
+                  'text-product-tag-00' ~ i,
+                  { value: 'Burger Name ' ~ i, class: 'text-center text-lg font-medium text-black py-4' }
+                )
+              }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
