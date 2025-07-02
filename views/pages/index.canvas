@@ -123,4 +123,8 @@ lacinia odio vitae vestibulum vestibulum.',
       item.text, item.button_url)
     }}
   {% endfor %}
+
+  <div class="h-screen">
+    <div class="box size-20 bg-primary m-24"></div>
+  </div>
 {% endblock %}

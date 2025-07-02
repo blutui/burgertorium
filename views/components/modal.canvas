@@ -1,0 +1,36 @@
+<div
+  id="fullPageModal"
+  class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden"
+>
+  <div class="bg-white w-full h-full overflow-auto relative">
+    <button
+      onclick="closeModal()"
+      class="absolute top-4 left-20 text-black text-3xl font-extrabold cursor-pointer"
+    >
+      ←
+    </button>
+    <div id="modalContent" class="px-20 pt-12 max-w-7xl mx-auto">
+      <div class="group flex flex-col justify-center items-center">
+        <a href="/" class="size-full flex justify-center">{% include 'components/icons.top-bun' %}</a>
+        <a href="/our-menu" class="size-full flex justify-center">{% include 'components/icons.h-f-menu' %}</a>
+        <a href="/" class="size-full flex justify-center">{% include 'components/icons.about' %}</a>
+        <a href="/" class="size-full flex justify-center">{% include 'components/icons.locations' %}</a>
+        <a href="/" class="size-full flex justify-center">{% include 'components/icons.careers' %}</a>
+        <a href="/" class="size-full flex justify-center">{% include 'components/icons.bottom-bun' %}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(event) {
+    event.preventDefault(); // prevent page navigation
+    const modal = document.getElementById("fullPageModal");
+    modal.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("fullPageModal");
+    modal.classList.add("hidden");
+  }
+</script>
