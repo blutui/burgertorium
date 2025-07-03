@@ -17,13 +17,18 @@
       {{
         cms_heading(
           'heading-tag-card-001' ~ index,
-          { element: 'h2', value: heading, class: 'text-secondary text-2xl font-bold mb-2' }
+          { element: 'h2', value: heading, class: 'text-secondary text-4xl font-bold mb-2' }
         )
       }}
 
       <!-- Text -->
-      {{ cms_text('text-tag-card-001' ~ index, { value: text, class: 'text-black
-      mb-4 font-family-manrope' }) }}
+      {{
+        cms_text(
+          'text-tag-card-001' ~ index,
+          { value: text, class: 'text-black
+      mb-4 text-lg font-family-manrope' }
+        )
+      }}
     </div>
 
     <!-- Read More Button -->
