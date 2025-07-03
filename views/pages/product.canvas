@@ -62,7 +62,7 @@
       <div
         class="
           font-family-manrope text-lg text-black
-          text-center mb-24
+          text-center mb-24 max-w-2xl
         "
       >
         {{ current_product.desc | raw }}
