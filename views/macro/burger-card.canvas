@@ -1,6 +1,6 @@
 {% macro card(index, image_url, heading, text, button_url) %}
 <div
-  class="flex bg-background rounded-lg overflow-hidden mb-12 max-w-5xl mx-auto border-b border-gray-200 pb-12"
+  class="flex bg-background rounded-lg overflow-hidden mb-24 max-w-5xl mx-auto pb-12"
 >
   <!-- Image on the left -->
   {{
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Read More Button -->
-    <div class="flex justify-start font-">
+    <div class="flex justify-start">
       {{
         cms_button(
           'button-tag-card-001' ~ index,

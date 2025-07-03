@@ -57,26 +57,30 @@ lacinia odio vitae vestibulum vestibulum.',
 
   <!-- Download Our App Section -->
   <div
-    class="bg-primary text-white h-[8rem] py-2 grid grid-cols-12 justify-center items-center relative px-48"
+    class="bg-primary text-white h-[8rem] py-2 relative px-48 flex justify-center"
   >
-    <div class="col-span-5 justify-self-end">
-      {{ cms_text('text-tag-10', { value: 'Download our app', class: 'text-4xl
+    <div class="grid grid-cols-12 justify-center items-center max-w-7xl w-full">
+      <div class="col-span-5 justify-self-end">
+        {{ cms_text('text-tag-10', { value: 'Download our app', class: 'text-3xl pr-8
     uppercase' }) }}
-      {{ cms_text('text-tag-20', { value: 'To have access to our
-    exclusive deals', class: '' }) }}
-    </div>
-    <div class="bg-secondary h-[0.2rem] col-span-5"></div>
-    <div id="hand" class="col-span-2 absolute bottom-0 right-1/7 z-20">
-      {{
-        cms_image(
-          'image-tag-20',
-          {
-            url: 'https://cdn.blutui.com/uploads/burgertorium/download-app-hand.png',
-            alt_text: 'Hand holding a phone',
-            class: ''
-          }
-        )
-      }}
+        {{
+          cms_text('text-tag-20', { value: 'To have access to our
+    exclusive deals', class: 'font-family-manrope' })
+        }}
+      </div>
+      <div class="bg-secondary h-[0.2rem] col-span-5"></div>
+      <div id="hand" class="col-span-2 absolute bottom-0 right-1/6 z-20">
+        {{
+          cms_image(
+            'image-tag-20',
+            {
+              url: 'https://cdn.blutui.com/uploads/burgertorium/download-app-hand.png',
+              alt_text: 'Hand holding a phone',
+              class: ''
+            }
+          )
+        }}
+      </div>
     </div>
   </div>
 
@@ -88,7 +92,7 @@ lacinia odio vitae vestibulum vestibulum.',
         {
           url: 'https://cdn.blutui.com/uploads/burgertorium/burger-deals.png',
           alt_text: 'Burger Deals',
-          class: 'w-full object-cover rounded-lg'
+          class: 'w-full object-cover rounded-lg uppercase'
         }
       )
     }}
