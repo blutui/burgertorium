@@ -2,21 +2,24 @@
   id="fullPageModal"
   class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden"
 >
-  <div class="bg-white w-full h-full overflow-auto relative">
+  <div
+    id="modalInner"
+    class="bg-white w-full h-full overflow-auto relative"
+  >
     <button
       onclick="closeModal()"
-      class="absolute top-4 left-20 text-black text-3xl font-extrabold cursor-pointer"
+      class="absolute top-4 left-20 text-black text-3xl font-extrabold cursor-pointer "
     >
       ←
     </button>
-    <div id="modalContent" class="px-20 pt-12 max-w-7xl mx-auto">
+    <div id="modalContent" class="animate-enter px-20 pt-12 max-w-7xl mx-auto">
       <div class="group flex flex-col justify-center items-center">
-        <a href="/" class="size-full flex justify-center">{% include 'components/icons.top-bun' %}</a>
-        <a href="/our-menu" class="size-full flex justify-center">{% include 'components/icons.h-f-menu' %}</a>
-        <a href="/" class="size-full flex justify-center">{% include 'components/icons.about' %}</a>
-        <a href="/" class="size-full flex justify-center">{% include 'components/icons.locations' %}</a>
-        <a href="/" class="size-full flex justify-center">{% include 'components/icons.careers' %}</a>
-        <a href="/" class="size-full flex justify-center">{% include 'components/icons.bottom-bun' %}</a>
+        <a href="/" class="burger-link">{% include 'components/icons.top-bun' %}</a>
+        <a href="/our-menu" class="burger-link">{% include 'components/icons.h-f-menu' %}</a>
+        <a href="/" class="burger-link">{% include 'components/icons.about' %}</a>
+        <a href="/" class="burger-link">{% include 'components/icons.locations' %}</a>
+        <a href="/" class="burger-link">{% include 'components/icons.careers' %}</a>
+        <a href="/" class="burger-link">{% include 'components/icons.bottom-bun' %}</a>
       </div>
     </div>
   </div>
@@ -24,13 +27,34 @@
 
 <script>
   function openModal(event) {
-    event.preventDefault(); // prevent page navigation
-    const modal = document.getElementById("fullPageModal");
-    modal.classList.remove("hidden");
-  }
+      event.preventDefault();
+      const modal = document.getElementById("fullPageModal");
+      const modalInner = document.getElementById("modalInner");
+      const burger = document.getElementById('modalContent');
 
-  function closeModal() {
-    const modal = document.getElementById("fullPageModal");
-    modal.classList.add("hidden");
-  }
+      burger.classList.remove('animate-leave');
+      burger.classList.add('animate-enter');
+
+      // Wait for animation to finish before showing
+      setTimeout(() => {
+       modal.classList.remove("hidden");
+      }, 300);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("fullPageModal");
+      const header = document.getElementById('header');
+      const burger = document.getElementById('modalContent');
+
+      burger.classList.remove('animate-enter');
+      burger.classList.add('animate-leave');
+
+      // Wait for animation to finish before hiding
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 300);
+
+      header.classList.remove('animate-leave');
+      header.classList.add('animate-enter');
+    }
 </script>

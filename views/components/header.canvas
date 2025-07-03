@@ -1,9 +1,9 @@
-<div class="bg-white border-t-2 border-secondary h-[6rem]">
+<div id="header" class=" animate-enter bg-white border-t-2 border-secondary h-[6rem] relative z-20">
   <div
-    class="flex items-center justify-between px-6 py-4 relative h-full z-20 max-w-7xl mx-auto"
+    class="flex items-center justify-between px-6 py-4 h-full max-w-7xl mx-auto"
   >
     <!-- Logo Section -->
-    <div class="absolute transform translate-y-1/4 bg-white rounded-full p-8">
+    <div class=" transform translate-y-1/4 bg-white rounded-full p-6">
       <a href="/">
         {{-
           cms_image(
@@ -21,13 +21,13 @@
 
     <!-- Navigation Links with SVG Icons -->
     <div class="ml-auto flex space-x-8">
-      <div class="hover:opacity-75">{% include 'components/icons/search' %}</div>
+      <div class=" hover:opacity-75">{% include 'components/icons/search' %}</div>
 
-      <div class="hover:opacity-75">
+      <div class=" hover:opacity-75">
         {% include 'components/icons/location' %}
       </div>
 
-      <div class="hover:opacity-75">
+      <div class="header-icon hover:opacity-75">
         <div onclick="openModal(event)">
           {% include 'components/icons/burger' %}
         </div>
@@ -38,3 +38,13 @@
 
 <!-- Modal -->
 {% include 'components/modal' %}
+
+<script>
+  document.querySelectorAll('.header-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      const header = document.getElementById('header');
+      header.classList.remove('animate-enter');
+      header.classList.add('animate-leave');
+    });
+  });
+</script>
