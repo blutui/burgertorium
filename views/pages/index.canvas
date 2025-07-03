@@ -71,7 +71,7 @@ lacinia odio vitae vestibulum vestibulum.',
       <div class="bg-secondary h-[0.2rem] col-span-3 2xl:col-span-5"></div>
       <div
         id="hand"
-        class="2xl:col-span-2 col-span-3 absolute bottom-0 right-1/6 z-20 hover:scale-105 transition-transform duration-300"
+        class="2xl:col-span-2 col-span-3 absolute -bottom-3 right-1/6 z-20 "
       >
         {{
           cms_image(

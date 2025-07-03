@@ -1,7 +1,7 @@
 <div class="bg-background border-t-4 border-b-4 border-secondary py-8">
   <div class="container max-w-7xl mx-auto grid grid-cols-12 gap-4 py-10">
     <!-- Logo Section -->
-    <div class="col-span-6 flex items-center">
+    <div class="col-span-5 flex items-center">
       {{
         cms_image(
           'image-tag-100',
@@ -38,14 +38,19 @@
     </div>
 
     <!-- Contact Us Section -->
-    <div class="col-span-2">
+    <div class="col-span-3">
       {{
         cms_heading(
           'heading-tag-300',
           { element: 'h4', value: 'Contact Us', class: 'text-md text-black mb-2 font-semibold' }
         )
       }}
-      {{ cms_list('list-tag-300', { ordered: false, items: ['Email', 'Phone', 'Locations'], class: 'text-black' }) }}
+      {{
+        cms_list(
+          'list-tag-300',
+          { ordered: false, items: ['Franchise Opportunity', 'Get the App', 'Locations'], class: 'text-black' }
+        )
+      }}
     </div>
   </div>
 </div>

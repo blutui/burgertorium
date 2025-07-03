@@ -161,13 +161,14 @@
     }
   }
 })({"6PrCY":[function(require,module,exports,__globalThis) {
-var _gsap = require("gsap"); // gsap.to("#hand", {
- //   duration: 0.5,
- //   rotation: 15,
- //   repeat: -1,
- //   yoyo: true,
- //   transformOrigin: "bottom",
- // });
+var _gsap = require("gsap");
+(0, _gsap.gsap).to("#hand", {
+    duration: 0.5,
+    rotation: 15,
+    repeat: -1,
+    yoyo: true,
+    transformOrigin: "bottom"
+});
 
 },{"gsap":"gS77a"}],"gS77a":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
