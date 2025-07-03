@@ -69,7 +69,7 @@
       </div>
 
       <!-- You Might Also Like Section -->
-      <div class="w-full border-t-2 border-black py-24">
+      <div class="w-full border-t-2 border-secondary py-24">
         {{
           cms_heading(
             'heading-tag-product-002',
