@@ -589,6 +589,10 @@
     height: calc(var(--spacing) * 36);
   }
 
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
+
   .h-\[0\.2rem\] {
     height: .2rem;
   }
@@ -1179,6 +1183,28 @@
     }
   }
 
+  .hover\:scale-105 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 105%;
+        --tw-scale-y: 105%;
+        --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+
+  .hover\:scale-110 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 110%;
+        --tw-scale-y: 110%;
+        --tw-scale-z: 110%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+
   .hover\:scale-125 {
     &:hover {
       @media (hover: hover) {
@@ -1238,15 +1264,33 @@
     }
   }
 
+  .sm\:h-96 {
+    @media (width >= 40rem) {
+      height: calc(var(--spacing) * 96);
+    }
+  }
+
   .md\:col-span-5 {
     @media (width >= 48rem) {
       grid-column: span 5 / span 5;
     }
   }
 
+  .md\:h-\[30rem\] {
+    @media (width >= 48rem) {
+      height: 30rem;
+    }
+  }
+
   .md\:pl-20 {
     @media (width >= 48rem) {
       padding-left: calc(var(--spacing) * 20);
+    }
+  }
+
+  .lg\:h-\[40rem\] {
+    @media (width >= 64rem) {
+      height: 40rem;
     }
   }
 
@@ -1268,6 +1312,12 @@
     }
   }
 
+  .xl\:h-\[45rem\] {
+    @media (width >= 80rem) {
+      height: 45rem;
+    }
+  }
+
   .xl\:px-48 {
     @media (width >= 80rem) {
       padding-inline: calc(var(--spacing) * 48);
@@ -1283,6 +1333,12 @@
   .\32 xl\:col-span-5 {
     @media (width >= 96rem) {
       grid-column: span 5 / span 5;
+    }
+  }
+
+  .\32 xl\:h-\[45rem\] {
+    @media (width >= 96rem) {
+      height: 45rem;
     }
   }
 
