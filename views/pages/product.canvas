@@ -1,4 +1,38 @@
 {% extends 'templates/default' %}
+
+{% set collections = [
+  {
+    title: 'Food',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
+    items: cms.collection('food')
+  },
+  {
+    title: 'Bundles & Offers',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/sides.png',
+    items: cms.collection('bundles')
+  },
+  {
+    title: 'Drinks',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/drinks.png',
+    items: cms.collection('drinks')
+  },
+  {
+    title: 'Desserts',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/snacks.png',
+    items: cms.collection('desserts')
+  }
+] %}
+
+{% set all_items = [] %}
+{% for collection in collections %}
+  {% set all_items = all_items | merge(collection.items) %}
+{% endfor %}
+{% set current_product = all_items | filter(entry => (entry.title | striptags | slug) == request.params.name) | first %}
+
+{# You might also like logic #}
+{% set current_collection = collections | filter(c => c.items | filter(i => (i.title | striptags | slug) == request.params.name) | length > 0) | first %}
+{% set related_items = current_collection.items | filter(i => (i.title | striptags | slug) != request.params.name) | slice(0, 4) %}
+
 {% block body %}
   <div class="container mx-auto p-6 max-w-7xl my-24">
     <div class="bg-background flex flex-col items-center py-10">
@@ -17,38 +51,22 @@
       }}
 
       <!-- Product Image -->
-      {{
-        cms_image(
-          'image-tag-product-001',
-          {
-            url: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
-            alt_text: 'H&F Cheeseburger',
-            class: 'w-1/4 mb-6'
-          }
-        )
-      }}
+      <img class="w-1/4 mb-6" src="{{current_product.image}}" alt="{{current_product.title}}">
 
       <!-- Product Name -->
-      {{
-        cms_text(
-          'heading-tag-product-001',
-          { element: 'h2', value: 'H&F Cheeseburger', class: 'text-3xl font-bold text-black mb-10 text-center' }
-        )
-      }}
+      <h2 class="text-3xl font-bold text-black mb-10 text-center">
+        {{ current_product.title | raw }}
+      </h2>
 
       <!-- Product Description -->
-      {{
-        cms_text(
-          'text-tag-product-002',
-          {
-            value: 'Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-    dolore magna aliqua.',
-            class: 'font-family-manrope text-lg text-black
-    text-center mb-24'
-          }
-        )
-      }}
+      <div
+        class="
+          font-family-manrope text-lg text-black
+          text-center mb-24
+        "
+      >
+        {{ current_product.desc | raw }}
+      </div>
 
       <!-- You Might Also Like Section -->
       <div class="w-full border-t-2 border-black py-24">
@@ -62,27 +80,17 @@
 
         <!-- Cards Section -->
         <div class="flex justify-center space-x-4">
-          {% for i in 1..4 %}
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden w-1/4 p-2">
-              {{
-                cms_image(
-                  'image-tag-product-00' ~ i,
-                  {
-                    url: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
-                    alt_text: 'Burger Image',
-                    class: 'w-2/3 object-cover mx-auto'
-                  }
-                )
-              }}
-              {{
-                cms_text(
-                  'text-product-tag-00' ~ i,
-                  { value: 'Burger Name ' ~ i, class: 'text-center text-lg font-medium text-black py-4' }
-                )
-              }}
+          {% for item in related_items %}
+          <a href="/product?name={{item.title|striptags|slug}}">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden p-2 size-full min-w-xs">
+              <img class="w-2/3 object-cover mx-auto" src="{{item.image}}" alt="{{item.title}}">
+              <div class="text-center text-lg font-medium text-black py-4">
+                {{item.title | raw}}
+              </div>
             </div>
+            </a>
           {% endfor %}
-        </div>
+        
       </div>
     </div>
   </div>

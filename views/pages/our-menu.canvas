@@ -54,7 +54,7 @@
           <div class="category-panel{% if not loop.first %} hidden{% endif %}">
             <div class="grid grid-cols-3 gap-4">
               {% for item in collection.items %}
-                <a href="/product/{{item.title|striptags|slug}}">
+                <a href="/product?name={{item.title|striptags|slug}}">
                   <div class="text-center grid-item bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300">
                     <img
                       src="{{ item.image }}"
