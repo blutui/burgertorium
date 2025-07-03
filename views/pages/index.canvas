@@ -60,7 +60,7 @@ lacinia odio vitae vestibulum vestibulum.',
     class="bg-primary text-white h-[8rem] py-2 relative px-48 flex justify-center"
   >
     <div class="grid grid-cols-12 justify-center items-center max-w-7xl w-full">
-      <div class="col-span-5 justify-self-end">
+      <div class="2xl:col-span-5 col-span-6 justify-self-end">
         {{ cms_text('text-tag-10', { value: 'Download our app', class: 'text-3xl pr-8
     uppercase' }) }}
         {{
@@ -68,8 +68,8 @@ lacinia odio vitae vestibulum vestibulum.',
     exclusive deals', class: 'font-family-manrope' })
         }}
       </div>
-      <div class="bg-secondary h-[0.2rem] col-span-5"></div>
-      <div id="hand" class="col-span-2 absolute bottom-0 right-1/6 z-20">
+      <div class="bg-secondary h-[0.2rem] col-span-3 2xl:col-span-5"></div>
+      <div id="hand" class="2xl:col-span-2 col-span-3 absolute bottom-0 right-1/6 z-20">
         {{
           cms_image(
             'image-tag-20',
