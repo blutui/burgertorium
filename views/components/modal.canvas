@@ -1,19 +1,19 @@
 <div
   id="fullPageModal"
-  class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden"
+  class="fixed inset-0 bg-white bg-opacity-20 flex items-center justify-center z-50 hidden"
 >
   <div
     id="modalInner"
-    class="bg-white w-full h-full overflow-auto relative"
+    class=" w-full h-full overflow-auto relative"
   >
     <button
       onclick="closeModal()"
-      class="absolute top-4 left-20 text-black text-3xl font-extrabold cursor-pointer "
+      class="absolute top-10 left-20 text-black text-3xl font-extrabold cursor-pointer "
     >
       ←
     </button>
-    <div id="modalContent" class="animate-enter px-20 pt-12 max-w-7xl mx-auto">
-      <div class="group flex flex-col justify-center items-center">
+    <div id="modalContent" class="animate-enter px-20 pt-12">
+      <div class="group flex flex-col">
         <a href="/" class="burger-link">{% include 'components/icons.top-bun' %}</a>
         <a href="/our-menu" class="burger-link">{% include 'components/icons.h-f-menu' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.about' %}</a>

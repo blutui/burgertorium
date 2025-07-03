@@ -1,11 +1,28 @@
+{% set collections = [
+  {
+    title: 'Food',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
+    items: cms.collection('food')
+  },
+  {
+    title: 'Bundles & Offers',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/sides.png',
+    items: cms.collection('bundles')
+  },
+  {
+    title: 'Drinks',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/drinks.png',
+    items: cms.collection('drinks')
+  },
+  {
+    title: 'Desserts',
+    image: 'https://cdn.blutui.com/uploads/burgertorium/snacks.png',
+    items: cms.collection('desserts')
+  }
+] %}
+
 <div class="w-full max-w-5xl mx-auto mt-8">
-  {% set items = [
-    { 'title': 'Sharesies', 'image': 'https://cdn.blutui.com/uploads/burgertorium/sharesies.png' },
-    { 'title': 'Sides', 'image': 'https://cdn.blutui.com/uploads/burgertorium/sides.png' },
-    { 'title': 'Drinks', 'image': 'https://cdn.blutui.com/uploads/burgertorium/drinks.png' },
-    { 'title': 'Snacks', 'image': 'https://cdn.blutui.com/uploads/burgertorium/snacks.png' }
-  ] %}
-  {% for item in items %}
+  {% for collection in collections %}
     <div class="border-b border-gray-200">
       <button
         class="flex items-center justify-between w-full p-4 text-left hover:bg-gray-100 focus:outline-none"
@@ -14,14 +31,14 @@
         <div class="flex items-center">
           {{
             cms_image(
-              'image-tag-accordian' ~ loop.index,
-              { url: item.image, alt_text: item.title, class: 'w-20 h-20 mr-4' }
+              'image-tag-accordian-' ~ loop.index,
+              { url: collection.image, alt_text: collection.title, class: 'w-20 h-20 mr-4' }
             )
           }}
           {{
             cms_heading(
-              'heading-tag-accordian' ~ loop.index,
-              { element: 'h3', value: item.title, class: 'text-xl font-medium text-black' }
+              'heading-tag-accordian-' ~ loop.index,
+              { element: 'h3', value: collection.title, class: 'text-xl font-medium text-black' }
             )
           }}
         </div>
@@ -42,38 +59,26 @@
       </button>
       <div class="hidden p-4 text-gray-600">
         <div class="w-full max-w-4xl mx-auto mt-8 grid grid-cols-4 gap-4">
-          {% set items = range(1, 8) %}
-          <!-- Create 8 items for 4 columns and 2 rows -->
-
-          {% for item in items %}
-            <div
-              class="flex flex-col items-center bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300"
-            >
-              {{
-                cms_image(
-                  'image-tag-' ~ loop.index,
-                  {
-                    url: 'https://cdn.blutui.com/uploads/burgertorium/dinner-for-2-1.png',
-                    alt_text: 'Dinner for 2',
-                    class: 'w-full h-30 object-cover rounded-md'
-                  }
-                )
-              }}
-              {{ cms_text('text-tag-' ~ loop.index, { value: 'Dinner for 2', class: 'mt-2 text-lg text-black' }) }}
-            </div>
+          {% for item in collection.items %}
+            <a href="/product/{{item.title|striptags|slug}}">
+              <div
+                class="flex flex-col items-center bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300"
+              >
+                <img src="{{item.image}}" alt="{{item.title}}" class="w-full object-cover rounded-md">
+                <div class="mt-2 text-lg text-black">{{ item.title | raw }}</div>
+              </div>
+            </a>
           {% endfor %}
 
-          <!-- Check more options button -->
           <div class="col-span-4 flex justify-end mt-4">
             {{
               cms_button(
-                'button-tag-1',
+                'button-tag-' ~ loop.index,
                 {
                   text: 'Check more options',
                   url: '/our-menu',
                   opens_new_tab: false,
-                  class: 'flex items-center
-          text-secondary font-semibold'
+                  class: 'flex items-center text-secondary font-semibold'
                 }
               )
             }}
