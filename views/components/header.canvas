@@ -7,7 +7,7 @@
       <a href="/">
         {{-
           cms_image(
-            'image-tag-1',
+            'image-tag-header-1',
             {
               url: 'https://cdn.blutui.com/uploads/burgertorium/logo.png',
               alt_text: 'Hugo

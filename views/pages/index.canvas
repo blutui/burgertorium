@@ -66,7 +66,7 @@ lacinia odio vitae vestibulum vestibulum.',
     exclusive deals', class: '' }) }}
     </div>
     <div class="bg-secondary h-[0.2rem] col-span-5"></div>
-    <div class="col-span-2 absolute bottom-0 right-1/7 z-20">
+    <div id="hand" class="col-span-2 absolute bottom-0 right-1/7 z-20">
       {{
         cms_image(
           'image-tag-20',
@@ -123,8 +123,4 @@ lacinia odio vitae vestibulum vestibulum.',
       item.text, item.button_url)
     }}
   {% endfor %}
-
-  <div class="h-screen">
-    <div class="box size-20 bg-primary m-24"></div>
-  </div>
 {% endblock %}

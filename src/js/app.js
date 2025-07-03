@@ -1,15 +1,9 @@
 import { gsap } from "gsap";
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.to(".box", {
-  duration: 5,
-  rotation: 360,
-  scale: 2,
-  scrollTrigger: {
-    trigger: ".box",
-    scrub: true,
-  },
+gsap.to("#hand", {
+  duration: 0.5,
+  rotation: 15,
+  repeat: -1,
+  yoyo: true,
+  transformOrigin: "bottom",
 });
