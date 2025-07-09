@@ -1,3 +1,5 @@
+// NOTE: files within src/* are not tracked by courier
+
 import { gsap } from "gsap";
 
 gsap.to("#hand", {

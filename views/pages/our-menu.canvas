@@ -55,9 +55,9 @@
             <div class="grid grid-cols-3 gap-4">
               {% for item in collection.items %}
                 <a href="/product?name={{item.title|striptags|slug}}">
-                  <div class="text-center grid-item bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                  <div class="text-center grid-item bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300 h-full">
                     <img
-                      src="{{ item.image }}"
+                      src="{{ item.image | image_url({ format:'webp' }) }}"
                       alt="{{ item.title }}"
                       class="w-full h-auto"
                     >

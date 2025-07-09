@@ -161,6 +161,7 @@
     }
   }
 })({"6PrCY":[function(require,module,exports,__globalThis) {
+// NOTE: files within src/* are not tracked by courier
 var _gsap = require("gsap");
 (0, _gsap.gsap).to("#hand", {
     duration: 0.5,

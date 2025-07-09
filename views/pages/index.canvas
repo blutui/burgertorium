@@ -34,7 +34,7 @@ lacinia odio vitae vestibulum vestibulum.',
       cms_image(
         'image-tag-10',
         {
-          url: 'https://cdn.blutui.com/uploads/burgertorium/hero.png',
+          url: 'https://cdn.blutui.com/uploads/burgertorium/hero.png?format=webp',
           alt_text: 'Hero
   Image',
           class: 'w-full h-[40rem] object-cover'
@@ -93,7 +93,7 @@ lacinia odio vitae vestibulum vestibulum.',
       cms_image(
         'image-tag-30',
         {
-          url: 'https://cdn.blutui.com/uploads/burgertorium/burger-deals.png',
+          url: 'https://cdn.blutui.com/uploads/burgertorium/burger-deals.png?format=webp',
           alt_text: 'Burger Deals',
           class: 'w-full object-cover rounded-lg uppercase'
         }
@@ -116,7 +116,7 @@ lacinia odio vitae vestibulum vestibulum.',
     cms_image(
       'image-tag-40',
       {
-        url: 'https://cdn.blutui.com/uploads/burgertorium/milkshake.png',
+        url: 'https://cdn.blutui.com/uploads/burgertorium/milkshake.png?format=webp',
         alt_text: 'Milkshake Banner',
         class: 'w-full my-24'
       }
