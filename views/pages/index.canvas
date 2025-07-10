@@ -60,7 +60,7 @@ lacinia odio vitae vestibulum vestibulum.',
     <img
       src="https://cdn.blutui.com/uploads/burgertorium/download-app-mobile.png"
       alt="Download App Mobile"
-      class="object-fit"
+      class="w-full object-contain"
     >
   </div>
 
