@@ -45,7 +45,7 @@
             url: '/our-menu',
             opens_new_tab: false,
             class: 'text-black self-start
-    hover:text-secondary transition duration-300'
+    hover:text-secondary transition duration-300 pb-10 md:pb-0'
           }
         )
       }}
