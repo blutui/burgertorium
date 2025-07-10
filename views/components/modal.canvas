@@ -6,20 +6,53 @@
     id="modalInner"
     class=" w-full h-full overflow-auto relative"
   >
+    <!-- Close button desktop -->
     <button
       onclick="closeModal()"
-      class="absolute top-10 left-20 text-black text-3xl font-extrabold cursor-pointer z-60 "
+      class="absolute top-10 left-20 text-black text-3xl font-extrabold cursor-pointer z-60 hidden md:block"
     >
       ←
     </button>
-    <div id="modalContent" class="animate-enter px-20 pt-8">
-      <div class="group flex flex-col 2xl:w-2/3 w-[70%] px-20">
+
+    <!-- Close button mobile -->
+    <div class="flex justify-between items-center w-full p-8">
+      <div>
+        {{
+          cms_image(
+            'image-tag-100',
+            {
+              url: 'https://cdn.blutui.com/uploads/burgertorium/logo.png',
+              alt_text: 'Hugo &
+      Francs Burgertorium Logo',
+              class: 'w-16'
+            }
+          )
+        }}
+      </div>
+      <button onclick="closeModal()" class="rotate-90 font-bold text-4xl text-[#FEC700]">X</button>
+    </div>
+
+    <div id="modalContent" class="animate-enter px-8 md:px-20 pt-8">
+      <!-- Menu items desktop -->
+      <div class="group flex-col 2xl:w-2/3 w-[70%] px-20 hidden md:flex">
         <a href="/" class="burger-link">{% include 'components/icons.top-bun' %}</a>
         <a href="/our-menu" class="burger-link">{% include 'components/icons.h-f-menu' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.about' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.locations' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.careers' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.bottom-bun' %}</a>
+      </div>
+
+      <!-- Menu items mobile -->
+      <div class="flex justify-center items-start size-full md:hidden mt-20">
+        <div class="flex flex-col justify-center items-center gap-2 w-full">
+          <a href="/our-menu" class="w-full">
+            <div class="rounded-md  text-4xl bg-[#C12C2626] py-4 px-6 w-full text-center">H&F MENU</div>
+          </a>
+          <div class="rounded-md  text-4xl bg-[#1F6C4426] py-4 px-6 w-full text-center">ABOUT</div>
+          <div class="rounded-md  text-4xl bg-[#F8BE6626] py-4 px-6 w-full text-center">LOCATIONS</div>
+          <div class="rounded-md  text-4xl bg-[#54210D26] py-4 px-6 w-full text-center">CAREERS</div>
+        </div>
       </div>
     </div>
   </div>
