@@ -427,6 +427,10 @@
     grid-column: span 8 / span 8;
   }
 
+  .col-span-12 {
+    grid-column: span 12 / span 12;
+  }
+
   .col-span-full {
     grid-column: 1 / -1;
   }
@@ -721,6 +725,10 @@
     resize: both;
   }
 
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -992,6 +1000,22 @@
     padding-top: calc(var(--spacing) * 8);
   }
 
+  .pt-24 {
+    padding-top: calc(var(--spacing) * 24);
+  }
+
+  .pt-32 {
+    padding-top: calc(var(--spacing) * 32);
+  }
+
+  .pt-36 {
+    padding-top: calc(var(--spacing) * 36);
+  }
+
+  .pt-40 {
+    padding-top: calc(var(--spacing) * 40);
+  }
+
   .pr-8 {
     padding-right: calc(var(--spacing) * 8);
   }
@@ -1225,6 +1249,24 @@
     }
   }
 
+  .md\:col-span-4 {
+    @media (width >= 48rem) {
+      grid-column: span 4 / span 4;
+    }
+  }
+
+  .md\:col-span-8 {
+    @media (width >= 48rem) {
+      grid-column: span 8 / span 8;
+    }
+  }
+
+  .md\:my-24 {
+    @media (width >= 48rem) {
+      margin-block: calc(var(--spacing) * 24);
+    }
+  }
+
   .md\:mb-24 {
     @media (width >= 48rem) {
       margin-bottom: calc(var(--spacing) * 24);
@@ -1262,6 +1304,12 @@
     }
   }
 
+  .md\:w-1\/4 {
+    @media (width >= 48rem) {
+      width: 25%;
+    }
+  }
+
   .md\:w-2\/3 {
     @media (width >= 48rem) {
       width: 66.6667%;
@@ -1272,6 +1320,12 @@
     @media (width >= 48rem) {
       --tw-translate-y: calc(1 / 4 * 100%);
       translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+
+  .md\:grid-cols-3 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
@@ -1290,6 +1344,18 @@
   .md\:justify-center {
     @media (width >= 48rem) {
       justify-content: center;
+    }
+  }
+
+  .md\:gap-0 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 0);
+    }
+  }
+
+  .md\:gap-8 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 8);
     }
   }
 
@@ -1327,6 +1393,12 @@
   .md\:px-20 {
     @media (width >= 48rem) {
       padding-inline: calc(var(--spacing) * 20);
+    }
+  }
+
+  .md\:pt-0 {
+    @media (width >= 48rem) {
+      padding-top: calc(var(--spacing) * 0);
     }
   }
 

@@ -34,7 +34,7 @@
 {% set related_items = current_collection.items | filter(i => (i.title | striptags | slug) != request.params.name) | slice(0, 4) %}
 
 {% block body %}
-  <div class="container mx-auto p-6 max-w-7xl my-24 ">
+  <div class="container mx-auto p-6 max-w-7xl pt-32 md:pt-0 md:my-24 ">
     <div class="bg-background flex flex-col items-center py-10">
       <!-- Return to Full Menu Link -->
       {{
@@ -51,7 +51,7 @@
       }}
 
       <!-- Product Image -->
-      <img class="w-1/4 mb-6" src="{{current_product.image | image_url({ format:'webp' })}}" alt="{{current_product.title}}">
+      <img class="w-full md:w-1/4 mb-6" src="{{current_product.image | image_url({ format:'webp' })}}" alt="{{current_product.title}}">
 
       <!-- Product Name -->
       <h2 class="text-3xl font-bold text-black mb-10 text-center">
@@ -79,7 +79,7 @@
         }}
 
         <!-- Cards Section -->
-        <div class="flex justify-center space-x-4">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-0 justify-center space-x-4">
           {% for item in related_items %}
           <a href="/product?name={{item.title|striptags|slug}}">
             <div class="bg-white shadow-lg rounded-lg overflow-hidden p-2 size-full min-w-xs">

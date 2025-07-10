@@ -23,7 +23,7 @@
   }
 ] %}
 {% block body %}
-  <div class="container mx-auto p-6 max-w-7xl my-24">
+  <div class="container mx-auto p-6 max-w-7xl md:my-24 pt-40 md:pt-0">
     <!-- Page Title -->
     {{
       cms_heading(
@@ -32,9 +32,9 @@
       )
     }}
 
-    <div class="grid grid-cols-12 gap-8">
+    <div class="grid grid-cols-12 gap-4 md:gap-8">
       <!-- Left Column with Divs -->
-      <div class="col-span-4 space-y-4">
+      <div class="col-span-12 md:col-span-4 space-y-4">
         {% for collection in collections %}
           <div
             class="border-b-2 border-secondary text-lg cursor-pointer hover:text-primary flex items-center justify-between py-4 category-tab{% if loop.first %} active{% endif %}"
@@ -49,10 +49,10 @@
       </div>
 
       <!-- Right Column with Grid -->
-      <div class="col-span-8 " id="grid-container">
+      <div class="col-span-12 md:col-span-8 " id="grid-container">
         {% for collection in collections %}
           <div class="category-panel{% if not loop.first %} hidden{% endif %}">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               {% for item in collection.items %}
                 <a href="/product?name={{item.title|striptags|slug}}">
                   <div class="text-center grid-item bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300 h-full">
