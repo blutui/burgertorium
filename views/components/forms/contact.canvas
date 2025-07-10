@@ -1,0 +1,60 @@
+{% import 'components/global/inputs' as ui %}
+{% set contact = cms.collection('contact') %}
+{% form 'burger-contact'  with { id: 'burger-contact' } %}
+  {% for field in form.fields | sort((a, b) => a.order <=> b.order) %}
+    {{ ui.field(field) }}
+  {% endfor %}
+
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("burger-contact").submit();
+    }
+  </script>
+
+  <div class=" mb-5">
+    <!-- privacy heading -->
+    <div id="privacy-statement" class="flex justify-between md:w-2/3 cursor-pointer">
+      <div class="md:text-lg text-xs font-bold cursor-pointer self-center">Burgertorium Privacy Statement</div>
+      <div>
+        <svg width="40" height="40" viewBox="0 0 20 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.75 10C10.75 9.58579 10.4142 9.25 10 9.25C9.58579 9.25 9.25 9.58579 9.25 10H10.75ZM9.46967 21.5303C9.76256 21.8232 10.2374 21.8232 10.5303 21.5303L15.3033 16.7574C15.5962 16.4645 15.5962 15.9896 15.3033 15.6967C15.0104 15.4038 14.5355 15.4038 14.2426 15.6967L10 19.9393L5.75736 15.6967C5.46447 15.4038 4.98959 15.4038 4.6967 15.6967C4.40381 15.9896 4.40381 16.4645 4.6967 16.7574L9.46967 21.5303ZM9.25 10V21H10.75V10H9.25Z" fill="#414A4F"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- privacy text -->
+    <div id="content-text" class="hidden">
+      <div class="text-base font-light">
+        {{ contact[0].privacy | raw }}
+      </div>
+    </div>
+
+    <script>
+      // JavaScript to toggle the visibility of the content
+      document.querySelector('#privacy-statement').addEventListener('click', function() {
+        const contentText = document.getElementById('content-text');
+        contentText.classList.toggle('hidden');
+      });
+    </script>
+  </div>
+  <div class=" flex justify-end mb-5">
+    <button
+      type="submit"
+      data-sitekey="{{ settings.forms_recaptcha_key }}"
+      data-callback="onSubmit"
+      data-action="submit"
+      class="g-recaptcha bg-black rounded-md overflow-hidden text-white relative text-lg font-light"
+    >
+      <span class="inline-flex gap-2 items-center font-medium py-2 px-10">Send</span>
+    </button>
+  </div>
+
+  <small class=" text-sm text-right pt-4"
+    >This site is protected by reCAPTCHA and the Google
+    <a href="https://policies.google.com/privacy">Privacy Policy</a>
+    and
+    <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small
+  >
+  <input type="hidden" name="redirect" value="/success">
+{% endform %}

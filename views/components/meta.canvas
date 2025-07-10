@@ -1,0 +1,37 @@
+{% if not title %}
+  {% if page.title %}
+    {% set title = ([page.title,settings['site_name']] | join(' | ')) %}
+    {% elseif blog.name %}
+    {% set title = ([blog.name,settings['site_name']] | join(' | ')) %}
+    {% elseif post.title %}
+    {% set title = ([post.title,settings['site_name']] | join(' | ')) %}
+  {% endif %}
+{% endif %}
+
+{% if not description %}
+  {% if page.description %}
+    {% set description = (page.description) %}
+    {% elseif blog.name %}
+    {% set description = (blog.description) %}
+    {% elseif post.title %}
+    {% set description = (post.blog.description ) %}
+  {% endif %}
+{% endif %}
+
+<title>
+  {{ title }}
+</title>
+
+<meta name="title" content="{{ title }}">
+<meta name="description" content="{{ description }}">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ settings['site_name'] }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:image" content="{{ image }}">
+<meta property="og:description" content="{{ description }}">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ image }}">

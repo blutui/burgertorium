@@ -1,0 +1,69 @@
+{# Input #}
+{% macro input(data) %}
+  <input type="{{ data.type }}" name="{{ data.name }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}" {% if data.required %} required {% endif %} class="w-full text-xl bg-[#7A7C7E0D] font-light rounded-md py-2 px-3 " />
+{% endmacro %}
+
+{# Textarea #}
+{% macro textarea(data) %}
+  <textarea type="{{ data.type }}" name="{{ data.name }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}" {% if data.required %} required {% endif %} class=" " ></textarea>
+{% endmacro %}
+
+{# Checkbox #}
+{% macro checkbox(data) %}
+  {% for item in data.options %}
+    <label class="text-sm md:text-lg font-light">
+      <input type="checkbox" name="{{ data.name }}[]" value="{{ item.value }}" />
+      <span class="">{{ item.value }}</span>
+    </label>
+  {% endfor %}
+{% endmacro %}
+
+{# Radio Button #}
+{% macro radio(data) %}
+  {% for item in data.options %}
+    <label class="">
+      <input type="radio" name="{{ data.name }}" value="{{ item.value }}" />
+      <span class=" text-lg font-light">{{ item.value }}</span>
+    </label>
+  {% endfor %}
+{% endmacro %}
+
+{# Select Menu #}
+{% macro select(data) %}
+  <div class="">
+    <select name="{{ data.name }}" value="{{ data.value }}" class="">
+      {% for item in data.options %}
+        <option value="{{ item.value }}">{{ item.value }}</option>
+      {% endfor %}
+    </select>
+  </div>
+{% endmacro %}
+
+{# Error Messages #}
+{% macro errors(data) %}
+<span class="">{{ data[0] }}</span>
+{% endmacro %}
+
+{# Form Field #}
+{% macro field(data) %}
+  <div class="mb-4">
+    {% if data.type != 'checkbox' %}
+        <label for="{{ data.name }}" class=" block  text-xl font-light mb-1">{{ data.label }}{% if data.required %} <span>*</span> {% endif %}</label>
+    {% endif %}
+    {% if data.type == 'checkbox' %}
+      {{ _self.checkbox(data) }}
+    {% elseif data.type == 'radio' %}
+      <div class=" flex flex-col gap-3">
+      {{ _self.radio(data) }}
+      </div>
+    {% elseif data.type == 'select' %}
+      {{ _self.select(data) }}
+    {% elseif data.type == 'textarea' %}
+      {{ _self.textarea(data) }}
+    {% else %}
+      {{ _self.input(data) }}
+    {% endif %}
+    <span>{{ data.help_text | escape }}</span>
+    {{ _self.errors(data.errors) }}
+  </div>
+{% endmacro %}
