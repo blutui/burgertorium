@@ -1,4 +1,3 @@
-{% import "components/icons/burger.canvas" as burger %}
 <div
   id="header"
   class=" animate-enter bg-transparent md:bg-white md:border-t-2 border-secondary h-[6rem] md:relative absolute z-20 w-full"
@@ -33,7 +32,7 @@
 
       <div class="header-icon hover:opacity-75">
         <div onclick="openModal(event)">
-          {{ burger.burger_icon('#C12C26') }}
+          {% include 'components/icons/burger' %}
         </div>
       </div>
     </div>
