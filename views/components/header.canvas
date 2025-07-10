@@ -1,9 +1,13 @@
-<div id="header" class=" animate-enter bg-white border-t-2 border-secondary h-[6rem] relative z-20">
+{% import "components/icons/burger.canvas" as burger %}
+<div
+  id="header"
+  class=" animate-enter bg-transparent md:bg-white md:border-t-2 border-secondary h-[6rem] md:relative absolute z-20 w-full"
+>
   <div
-    class="flex items-center justify-between px-6 py-4 h-full max-w-7xl mx-auto"
+    class="flex items-center justify-between px-6 py-4 h-full max-w-7xl mx-auto w-full"
   >
     <!-- Logo Section -->
-    <div class=" transform translate-y-1/4 bg-white rounded-full p-6">
+    <div class=" transform  md:translate-y-1/4 bg-white rounded-b-full md:rounded-full p-4 md:p-6">
       <a href="/">
         {{-
           cms_image(
@@ -12,7 +16,7 @@
               url: 'https://cdn.blutui.com/uploads/burgertorium/logo.png',
               alt_text: 'Hugo
         & Francs Burgertorium Logo',
-              class: 'w-36 h-36'
+              class: 'size-20 md:size-36 object-contain'
             }
           )
         -}}
@@ -21,15 +25,15 @@
 
     <!-- Navigation Links with SVG Icons -->
     <div class="ml-auto flex space-x-8">
-      <div class=" hover:opacity-75">{% include 'components/icons/search' %}</div>
+      <div class=" hover:opacity-75 hidden md:block">{% include 'components/icons/search' %}</div>
 
-      <div class=" hover:opacity-75">
+      <div class=" hover:opacity-75 hidden md:block">
         {% include 'components/icons/location' %}
       </div>
 
       <div class="header-icon hover:opacity-75">
         <div onclick="openModal(event)">
-          {% include 'components/icons/burger' %}
+          {{ burger.burger_icon('#C12C26') }}
         </div>
       </div>
     </div>

@@ -58,7 +58,7 @@
         </svg>
       </button>
       <div class="hidden p-4 text-gray-600">
-        <div class="w-full max-w-4xl mx-auto mt-8 grid grid-cols-4 gap-4">
+        <div class="w-full max-w-4xl mx-auto mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
           {% for item in collection.items %}
             <a href="/product?name={{item.title|striptags|slug}}">
               <div
@@ -74,7 +74,7 @@
             </a>
           {% endfor %}
 
-          <div class="col-span-4 flex justify-end mt-4">
+          <div class="col-span-full flex justify-end mt-4">
             {{
               cms_button(
                 'button-tag-' ~ loop.index,

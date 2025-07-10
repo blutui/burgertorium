@@ -13,7 +13,7 @@
     {{ asset('styles/main.css') | stylesheet_tag }}
   </head>
   {% include 'components/header' %}
-  <body class="font-family-krona antialiased bg-background">
+  <body class="font-family-krona antialiased bg-background relative">
     {% block body %}{% endblock %}
     {{ asset('js/app.js') | script_tag }}
   </body>

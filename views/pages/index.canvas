@@ -37,27 +37,36 @@ lacinia odio vitae vestibulum vestibulum.',
           url: 'https://cdn.blutui.com/uploads/burgertorium/hero.png?format=webp',
           alt_text: 'Hero
   Image',
-          class: 'w-full h-[40rem] object-cover'
+          class: 'w-full h-[40rem] object-cover object-[70%_50%]'
         }
       )
     }}
 
     <div
-      class="absolute inset-0 flex flex-col items-start justify-center pl-10 md:pl-20 2xl:pl-96"
+      class="absolute inset-0 flex flex-col items-start justify-end md:justify-center pl-10 md:pl-20 2xl:pl-96"
     >
       {{
         cms_text(
           'heading-tag-10',
           { element: 'h1', value: 'It’s French for
-    delicious.', class: 'text-6xl font-bold mb-4' }
+    delicious.', class: 'text-4xl md:text-6xl font-bold mb-4' }
         )
       }}
     </div>
   </div>
 
+  <!-- Download Our App mobile -->
+  <div id="mobile-download-app" class="fixed bottom-0 left-0 w-full z-50">
+    <img
+      src="https://cdn.blutui.com/uploads/burgertorium/download-app-mobile.png"
+      alt="Download App Mobile"
+      class="object-fit"
+    >
+  </div>
+
   <!-- Download Our App Section -->
   <div
-    class="bg-primary text-white h-[8rem] py-2 relative px-48 flex justify-center"
+    class="hidden bg-primary text-white h-[8rem] py-2 relative px-48 md:flex justify-center"
   >
     <div class="grid grid-cols-12 justify-center items-center max-w-7xl w-full">
       <div class="2xl:col-span-5 col-span-6 justify-self-end">
@@ -88,7 +97,7 @@ lacinia odio vitae vestibulum vestibulum.',
   </div>
 
   <!-- Burger Deals Banner -->
-  <div class="relative my-24 max-w-6xl mx-auto">
+  <div class="relative my-24 max-w-6xl mx-auto px-4">
     {{
       cms_image(
         'image-tag-30',
@@ -101,9 +110,14 @@ lacinia odio vitae vestibulum vestibulum.',
     }}
 
     <div
-      class="absolute inset-0 flex flex-col items-start justify-center text-white pl-20"
+      class="absolute inset-0 flex flex-col items-start justify-center text-white pl-10 md:pl-20"
     >
-      {{ cms_text('heading-tag-30', { element: 'h2', value: 'Burger Deals', class: 'text-8xl font-bold mb-4' }) }}
+      {{
+        cms_heading(
+          'heading-tag-30',
+          { element: 'h2', value: 'Burger Deals', class: 'text-3xl md:text-8xl font-bold mb-4' }
+        )
+      }}
     </div>
   </div>
 
@@ -130,4 +144,27 @@ lacinia odio vitae vestibulum vestibulum.',
       item.text, item.button_url)
     }}
   {% endfor %}
+
+  <script>
+    // Only run on client
+    document.addEventListener('DOMContentLoaded', function () {
+      const banner = document.getElementById('mobile-download-app');
+      function toggleBanner() {
+        if (!banner) return;
+        // Only on mobile (tailwind md: breakpoint is 768px)
+        if (window.innerWidth >= 768) {
+          banner.classList.add('hidden');
+          return;
+        }
+        if (window.scrollY * 4 > window.innerHeight) {
+          banner.classList.remove('hidden');
+        } else {
+          banner.classList.add('hidden');
+        }
+      }
+      window.addEventListener('scroll', toggleBanner);
+      window.addEventListener('resize', toggleBanner);
+      toggleBanner();
+    });
+  </script>
 {% endblock %}
