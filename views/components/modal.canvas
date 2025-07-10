@@ -49,11 +49,11 @@
       <div class="flex justify-center items-start size-full md:hidden mt-20">
         <div class="flex flex-col justify-center items-center gap-2 w-full">
           <a href="/our-menu" class="w-full">
-            <div class="rounded-md  text-4xl bg-[#C12C2626] py-4 px-6 w-full text-center">H&F MENU</div>
+            <div class="rounded-md  text-3xl bg-[#C12C2626] py-4 px-6 w-full text-center">H&F MENU</div>
           </a>
-          <div class="rounded-md  text-4xl bg-[#1F6C4426] py-4 px-6 w-full text-center">ABOUT</div>
-          <div class="rounded-md  text-4xl bg-[#F8BE6626] py-4 px-6 w-full text-center">LOCATIONS</div>
-          <div class="rounded-md  text-4xl bg-[#54210D26] py-4 px-6 w-full text-center">CAREERS</div>
+          <div class="rounded-md  text-3xl bg-[#1F6C4426] py-4 px-6 w-full text-center">ABOUT</div>
+          <div class="rounded-md  text-3xl bg-[#F8BE6626] py-4 px-6 w-full text-center">LOCATIONS</div>
+          <div class="rounded-md  text-3xl bg-[#54210D26] py-4 px-6 w-full text-center">CAREERS</div>
         </div>
       </div>
     </div>

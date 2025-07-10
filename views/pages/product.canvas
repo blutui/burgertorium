@@ -81,8 +81,8 @@
         <!-- Cards Section -->
         <div class="flex flex-col md:flex-row gap-4 md:gap-0 justify-center space-x-4">
           {% for item in related_items %}
-          <a href="/product?name={{item.title|striptags|slug}}">
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden p-2 size-full min-w-xs">
+          <a href="/product?name={{item.title|striptags|slug}}" class="w-full">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden p-2 size-full min-w-xs w-full">
               <img class="w-2/3 object-cover mx-auto" src="{{item.image | image_url({ format:'webp' })}}" alt="{{item.title}}">
               <div class="text-center text-lg font-medium text-black py-4">
                 {{item.title | raw}}
