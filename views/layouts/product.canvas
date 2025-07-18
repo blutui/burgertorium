@@ -1,37 +1,13 @@
 {% extends 'templates/default' %}
 
-{% set collections = [
-  {
-    title: 'Food',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
-    items: cms.collection('food')
-  },
-  {
-    title: 'Bundles & Offers',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/sides.png',
-    items: cms.collection('bundles')
-  },
-  {
-    title: 'Drinks',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/drinks.png',
-    items: cms.collection('drinks')
-  },
-  {
-    title: 'Desserts',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/snacks.png',
-    items: cms.collection('desserts')
-  }
-] %}
+{% set categories = cms.collection('menucategory') | sort((a, b) => a.sort <=> b.sort) %}
+{% set items = cms.collection('menuitems') %}
 
-{% set all_items = [] %}
-{% for collection in collections %}
-  {% set all_items = all_items | merge(collection.items) %}
-{% endfor %}
-{% set current_product = all_items | filter(entry => (entry.title | striptags | slug) == request.params.name) | first %}
+{% set current_product = items | filter(entry => (entry.title | striptags | slug) == request.params.name) | first %}
 
 {# You might also like logic #}
-{% set current_collection = collections | filter(c => c.items | filter(i => (i.title | striptags | slug) == request.params.name) | length > 0) | first %}
-{% set related_items = current_collection.items | filter(i => (i.title | striptags | slug) != request.params.name) | slice(0, 4) %}
+{% set current_category =  current_product.foreign_keys.category %}
+{% set related_items = items | filter(i => (i.title | striptags | slug) != request.params.name) | filter(i => (i.foreign_keys.category) == current_category) | slice(0, 4) %}
 
 {% block body %}
   <div class="container mx-auto p-6 max-w-7xl pt-32 md:pt-0 md:my-24 ">

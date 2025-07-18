@@ -1,27 +1,8 @@
 {% extends 'templates/default' %}
 
-{% set collections = [
-  {
-    title: 'Food',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
-    items: cms.collection('food')
-  },
-  {
-    title: 'Bundles & Offers',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/sides.png',
-    items: cms.collection('bundles')
-  },
-  {
-    title: 'Drinks',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/drinks.png',
-    items: cms.collection('drinks')
-  },
-  {
-    title: 'Desserts',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/snacks.png',
-    items: cms.collection('desserts')
-  }
-] %}
+{% set categories = cms.collection('menucategory') | sort((a, b) => a.sort <=> b.sort) %}
+{% set items = cms.collection('menuitems') %}
+
 {% block body %}
   <div class="container mx-auto p-6 max-w-7xl md:my-24 pt-40 md:pt-0">
     <!-- Page Title -->
@@ -35,13 +16,13 @@
     <div class="grid grid-cols-12 gap-4 md:gap-8">
       <!-- Left Column with Divs -->
       <div class="col-span-12 md:col-span-4 space-y-4">
-        {% for collection in collections %}
+        {% for category in categories %}
           <div
             class="border-b-2 border-secondary text-lg cursor-pointer hover:text-primary flex items-center justify-between py-4 category-tab{% if loop.first %} active{% endif %}"
             data-index="{{ loop.index0 }}"
           >
             <div class="text-black">
-              {{ collection.title }}
+              {{ category.category }}
             </div>
             <div class="w-6 h-6 text-black">•</div>
           </div>
@@ -50,20 +31,22 @@
 
       <!-- Right Column with Grid -->
       <div class="col-span-12 md:col-span-8 " id="grid-container">
-        {% for collection in collections %}
+        {% for category in categories %}
           <div class="category-panel{% if not loop.first %} hidden{% endif %}">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {% for item in collection.items %}
-                <a href="/product?name={{item.title|striptags|slug}}">
-                  <div class="text-center grid-item bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300 h-full">
-                    <img
-                      src="{{ item.image | image_url({ format:'webp' }) }}"
-                      alt="{{ item.title }}"
-                      class="w-full h-auto"
-                    >
-                    <div class="text-md mt-2 text-black">{{ item.title | raw }}</div>
-                  </div>
-                </a>
+              {% for item in items %}
+                {% if item.foreign_keys.category == category.category %}
+                  <a href="/product?name={{item.title|striptags|slug}}">
+                    <div class="text-center grid-item bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300 h-full">
+                      <img
+                        src="{{ item.image | image_url({ format:'webp' }) }}"
+                        alt="{{ item.title }}"
+                        class="w-full h-auto"
+                      >
+                      <div class="text-md mt-2 text-black">{{ item.title | raw }}</div>
+                    </div>
+                  </a>
+                {% endif %}
               {% endfor %}
             </div>
           </div>

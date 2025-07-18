@@ -1,46 +1,18 @@
-{% set collections = [
-  {
-    title: 'Food',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/burger-isolated-1.png',
-    items: cms.collection('food')
-  },
-  {
-    title: 'Bundles & Offers',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/sides.png',
-    items: cms.collection('bundles')
-  },
-  {
-    title: 'Drinks',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/drinks.png',
-    items: cms.collection('drinks')
-  },
-  {
-    title: 'Desserts',
-    image: 'https://cdn.blutui.com/uploads/burgertorium/snacks.png',
-    items: cms.collection('desserts')
-  }
-] %}
+{% set categories = cms.collection('menucategory') | sort((a, b) => a.sort <=> b.sort) %}
+{% set items = cms.collection('menuitems') %}
 
 <div class="w-full max-w-5xl mx-auto mt-8">
-  {% for collection in collections %}
+  {% for category in categories %}
     <div class="border-b border-gray-200">
       <button
         class="flex items-center justify-between w-full p-4 text-left hover:bg-gray-100 focus:outline-none"
         onclick="toggleAccordion(this)"
       >
         <div class="flex items-center">
-          {{
-            cms_image(
-              'image-tag-accordian-' ~ loop.index,
-              { url: collection.image, alt_text: collection.title, class: 'w-20 h-20 mr-4' }
-            )
-          }}
-          {{
-            cms_heading(
-              'heading-tag-accordian-' ~ loop.index,
-              { element: 'h3', value: collection.title, class: 'text-xl font-medium text-black' }
-            )
-          }}
+          <img class="w-20 h-20 mr-4" src="{{category.image}}" alt="{{category.category}}">
+          <h3 class="text-xl font-medium text-black">
+            {{ category.category }}
+          </h3>
         </div>
         <svg
           class="w-6 h-6 text-gray-500 transition-transform transform"
@@ -59,19 +31,21 @@
       </button>
       <div class="hidden p-4 text-gray-600">
         <div class="w-full max-w-4xl mx-auto mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {% for item in collection.items %}
-            <a href="/product?name={{item.title|striptags|slug}}">
-              <div
-                class="flex flex-col items-center bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300 h-full"
-              >
-                <img
-                  src="{{item.image | image_url({ format:'webp' }) }}"
-                  alt="{{item.title}}"
-                  class="w-full object-cover rounded-md"
+          {% for item in items %}
+            {% if item.foreign_keys.category == category.category %}
+              <a href="/product?name={{item.title|striptags|slug}}">
+                <div
+                  class="flex flex-col items-center bg-white p-4 rounded-lg hover:shadow-lg transition-shadow duration-300 h-full"
                 >
-                <div class="mt-2 text-lg text-black">{{ item.title | raw }}</div>
-              </div>
-            </a>
+                  <img
+                    src="{{item.image | image_url({ format:'webp' }) }}"
+                    alt="{{item.title}}"
+                    class="w-full object-cover rounded-md"
+                  >
+                  <div class="mt-2 text-lg text-black">{{ item.title | raw }}</div>
+                </div>
+              </a>
+            {% endif %}
           {% endfor %}
 
           <div class="col-span-full flex justify-end mt-4">

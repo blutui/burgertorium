@@ -407,10 +407,6 @@
     z-index: 20;
   }
 
-  .z-30 {
-    z-index: 30;
-  }
-
   .z-50 {
     z-index: 50;
   }
@@ -423,16 +419,8 @@
     grid-column: span 3 / span 3;
   }
 
-  .col-span-4 {
-    grid-column: span 4 / span 4;
-  }
-
   .col-span-6 {
     grid-column: span 6 / span 6;
-  }
-
-  .col-span-8 {
-    grid-column: span 8 / span 8;
   }
 
   .col-span-12 {
@@ -485,10 +473,6 @@
 
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
-  }
-
-  .mt-10 {
-    margin-top: calc(var(--spacing) * 10);
   }
 
   .mt-20 {
@@ -613,10 +597,6 @@
     height: 100%;
   }
 
-  .w-1\/4 {
-    width: 25%;
-  }
-
   .w-2\/3 {
     width: 66.6667%;
   }
@@ -659,10 +639,6 @@
 
   .w-full {
     width: 100%;
-  }
-
-  .w-screen {
-    width: 100vw;
   }
 
   .max-w-2xl {
@@ -757,14 +733,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
@@ -775,10 +743,6 @@
 
   .items-center {
     align-items: center;
-  }
-
-  .items-center-safe {
-    align-items: safe center;
   }
 
   .items-start {
@@ -992,10 +956,6 @@
     padding: calc(var(--spacing) * 8);
   }
 
-  .p-10 {
-    padding: calc(var(--spacing) * 10);
-  }
-
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
@@ -1056,16 +1016,8 @@
     padding-top: calc(var(--spacing) * 8);
   }
 
-  .pt-24 {
-    padding-top: calc(var(--spacing) * 24);
-  }
-
   .pt-32 {
     padding-top: calc(var(--spacing) * 32);
-  }
-
-  .pt-36 {
-    padding-top: calc(var(--spacing) * 36);
   }
 
   .pt-40 {
@@ -1098,10 +1050,6 @@
 
   .text-right {
     text-align: right;
-  }
-
-  .font-\[\#FEC700\] {
-    font-family: #fec700;
   }
 
   .font-family-krona {
@@ -1528,12 +1476,6 @@
   .md\:text-\[\#C12C26\] {
     @media (width >= 48rem) {
       color: #c12c26;
-    }
-  }
-
-  .md\:text-red-500 {
-    @media (width >= 48rem) {
-      color: var(--color-red-500);
     }
   }
 
