@@ -39,7 +39,7 @@
       <div class="group flex-col 2xl:w-2/3 w-[70%] px-20 hidden md:flex">
         <a href="/" class="burger-link">{% include 'components/icons.top-bun' %}</a>
         <a href="/our-menu" class="burger-link">{% include 'components/icons.h-f-menu' %}</a>
-        <a href="/" class="burger-link">{% include 'components/icons.about' %}</a>
+        <a href="/contact-us" class="burger-link">{% include 'components/icons.contact' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.locations' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.careers' %}</a>
         <a href="/" class="burger-link">{% include 'components/icons.bottom-bun' %}</a>
@@ -51,7 +51,9 @@
           <a href="/our-menu" class="w-full">
             <div class="rounded-md  text-3xl bg-[#C12C2626] py-4 px-6 w-full text-center">H&F MENU</div>
           </a>
-          <div class="rounded-md  text-3xl bg-[#1F6C4426] py-4 px-6 w-full text-center">ABOUT</div>
+          <a href="/contact-us" class="w-full">
+            <div class="rounded-md  text-3xl bg-[#1F6C4426] py-4 px-6 w-full text-center">CONTACT US</div>
+          </a>
           <div class="rounded-md  text-3xl bg-[#F8BE6626] py-4 px-6 w-full text-center">LOCATIONS</div>
           <div class="rounded-md  text-3xl bg-[#54210D26] py-4 px-6 w-full text-center">CAREERS</div>
         </div>

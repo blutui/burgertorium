@@ -1,11 +1,11 @@
 {# Input #}
 {% macro input(data) %}
-  <input type="{{ data.type }}" name="{{ data.name }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}" {% if data.required %} required {% endif %} class="w-full text-xl bg-[#7A7C7E0D] font-light rounded-md py-2 px-3 " />
+  <input type="{{ data.type }}" name="{{ data.name }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}" {% if data.required %} required {% endif %} class="w-full text-xl bg-[#7A7C7E0D] font-light rounded-md py-2 px-3" />
 {% endmacro %}
 
 {# Textarea #}
 {% macro textarea(data) %}
-  <textarea type="{{ data.type }}" name="{{ data.name }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}" {% if data.required %} required {% endif %} class=" " ></textarea>
+  <textarea type="{{ data.type }}" name="{{ data.name }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}" {% if data.required %} required {% endif %} class="w-full text-xl bg-[#7A7C7E0D] font-light rounded-md py-2 px-3" ></textarea>
 {% endmacro %}
 
 {# Checkbox #}

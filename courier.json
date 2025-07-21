@@ -1,5 +1,5 @@
 {
   "$schema": "https://dev.blutui.com/schemas/v1/schema.json",
-  "cassette": "copy",
+  "cassette": "11_menu_component",
   "handle": "burgertorium"
 }
