@@ -1,11 +1,10 @@
 {% import 'components/global/inputs' as ui %}
 {% set contact = cms.collection('contact') %}
-{% form 'burgercontact '  with { id: 'burgercontact ' } %}
+{% form 'burgercontact '  with { id: 'burgercontact' } %}
   {% for field in form.fields | sort((a, b) => a.order <=> b.order) %}
     {{ ui.field(field) }}
   {% endfor %}
 
-  <script src="https://www.google.com/recaptcha/api.js"></script>
   <script>
     function onSubmit(token) {
       document.getElementById("burgercontact").submit();
