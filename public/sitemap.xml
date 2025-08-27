@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://burgertorium.blutui.com/</loc>
+    <lastmod>2025-07-11 09:28:26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://burgertorium.blutui.com/our-menu</loc>
+    <lastmod>2025-07-11 09:30:19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://burgertorium.blutui.com/product</loc>
+    <lastmod>2025-07-11 09:31:41</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://burgertorium.blutui.com/contact-us</loc>
+    <lastmod>2025-07-22 10:06:56</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

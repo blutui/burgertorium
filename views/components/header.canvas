@@ -6,7 +6,7 @@
     class="flex items-center justify-between px-6 py-4 h-full max-w-7xl mx-auto w-full"
   >
     <!-- Logo Section -->
-    <div class=" transform  md:translate-y-1/4 bg-white rounded-b-full md:rounded-full p-4 md:p-6">
+    <div class=" transform  md:translate-y-1/4 bg-white rounded-b-full md:rounded-full p-4 md:p-5">
       <a href="/">
         {{-
           cms_image(
