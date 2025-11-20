@@ -7,8 +7,7 @@
           'image-tag-100',
           {
             url: 'https://cdn.blutui.com/uploads/burgertorium/logo.png',
-            alt_text: 'Hugo &
-      Francs Burgertorium Logo',
+            alt_text: 'Hugo & Francs Burgertorium Logo',
             class: 'w-32'
           }
         )

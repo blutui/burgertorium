@@ -1,3 +1,4 @@
 {
-  "plugins": ["prettier-plugin-canvas"]
+  "plugins": ["prettier-plugin-canvas"],
+  "printWidth": 120
 }

@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "parcel": "^2.14.0",
-    "prettier-plugin-canvas": "^0.3.1"
+    "prettier-plugin-canvas": "^0.4.0"
   }
 }
