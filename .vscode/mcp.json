@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "Figma": {
+      "url": "http://127.0.0.1:3845/mcp",
+      "type": "http"
+    },
+    "Blutui": {
+      "type": "stdio",
+      "command": "courier",
+      "args": ["mcp", "server"]
+    }
+  },
+  "inputs": []
+}
