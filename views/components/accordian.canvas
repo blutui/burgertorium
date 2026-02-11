@@ -1,4 +1,4 @@
-{% set categories = cms.collection('menucategory') | sort((a, b) => a.sort <=> b.sort) %}
+{% set categories = cms.collection('menucategory') | default([]) | sort((a, b) => a.sort <=> b.sort) %}
 {% set items = cms.collection('menuitems') %}
 
 <div class="w-full max-w-5xl mx-auto mt-8">

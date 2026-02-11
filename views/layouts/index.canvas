@@ -146,23 +146,23 @@ lacinia odio vitae vestibulum vestibulum.',
 
   <script>
     // Only run on client
-    document.addEventListener('DOMContentLoaded', function () {
-      const banner = document.getElementById('mobile-download-app');
+    document.addEventListener("DOMContentLoaded", function () {
+      const banner = document.getElementById("mobile-download-app");
       function toggleBanner() {
         if (!banner) return;
         // Only on mobile (tailwind md: breakpoint is 768px)
         if (window.innerWidth >= 768) {
-          banner.classList.add('hidden');
+          banner.classList.add("hidden");
           return;
         }
         if (window.scrollY * 4 > window.innerHeight) {
-          banner.classList.remove('hidden');
+          banner.classList.remove("hidden");
         } else {
-          banner.classList.add('hidden');
+          banner.classList.add("hidden");
         }
       }
-      window.addEventListener('scroll', toggleBanner);
-      window.addEventListener('resize', toggleBanner);
+      window.addEventListener("scroll", toggleBanner);
+      window.addEventListener("resize", toggleBanner);
       toggleBanner();
     });
   </script>
